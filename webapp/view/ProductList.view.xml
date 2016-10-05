@@ -5,7 +5,7 @@
 			<Toolbar>
 				<Title text="Products"/>
 				<ToolbarSpacer/>
-				<Input id="productInput" width="50%" type="Text" placeholder="Search..." showSuggestion="true" suggestionItems="{northwind>Products}">
+				<Input id="productInput" width="50%" type="Text" placeholder="Search..." showSuggestion="true" suggestionItems="{northwind>/Products}">
 					<suggestionItems>
 						<core:Item text="{ProductName}"/>
 					</suggestionItems>

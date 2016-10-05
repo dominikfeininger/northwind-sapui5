@@ -1,0 +1,20 @@
+<mvc:View controllerName="test.app.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<App id="app">
+		<Page title="Northwind">
+			<headerContent>
+				<core:Icon src="sap-icon://sap-ui5" tooltip="SAPUI5"/>
+			</headerContent>
+			<IconTabBar class="sapUiResponsiveContentPadding" expanded="{device>/isNoPhone}">
+				<items>
+					<IconTabFilter text="Products">
+						<mvc:XMLView viewName="test.app.view.ProductList"/>
+					</IconTabFilter>
+					<IconTabFilter text="Suppliers">
+						<Text text="WIP"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</Page>
+	</App>
+</mvc:View>

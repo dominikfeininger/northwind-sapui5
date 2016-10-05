@@ -1,0 +1,47 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" controllerName="test.app.controller.ProductList">
+	<Table id="productList" class="sapUiResponsiveMargin" width="auto"
+		items="{ path : 'northwind>/Products', sorter: { path : 'Supplier/CompanyName', group : true }, parameters: { 'expand': 'Supplier,Category' } }">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="Products"/>
+				<ToolbarSpacer/>
+				<Input id="productInput" width="50%" type="Text" placeholder="Search..." showSuggestion="true" suggestionItems="{northwind>Products}">
+					<suggestionItems>
+						<core:Item text="{ProductName}"/>
+					</suggestionItems>
+				</Input>
+				<Button tooltip="Search" type="Emphasized" icon="sap-icon://search" press="onFilterProducts"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="20%">
+				<Text text="Product"/>
+			</Column>
+			<Column width="20%">
+				<Text text="Category"/>
+			</Column>
+			<Column width="20%">
+				<Text text="Units in Stock"/>
+			</Column>
+			<Column width="20%">
+				<Text text="Quantity per Unity" />
+			</Column>
+			<Column width="20%" hAlign="End">
+				<Text text="Price"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" press="onPress">
+				<cells>
+					<ObjectIdentifier title="{northwind>ProductName}"/>
+					<Text text="{northwind>Category/CategoryName}"/>
+					<ObjectNumber number="{northwind>UnitsInStock}" emphasized="false"/>
+					<ObjectNumber number="{northwind>QuantityPerUnit}" emphasized="false" />
+					<ObjectNumber
+						number="{ parts: [{path: 'northwind>UnitPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+						unit="{view>/currency}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>

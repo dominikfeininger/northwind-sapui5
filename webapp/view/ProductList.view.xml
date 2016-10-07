@@ -5,7 +5,7 @@
 			<Toolbar>
 				<Title text="Northwind Product List"/>
 				<ToolbarSpacer />
-				<SearchField width="60%" search="onFilterProducts"/>
+				<SearchField width="60%" search="onFilterProducts" suggest="onSuggestProducts"/>
 			</Toolbar>
 		</headerToolbar>
 		<columns>
@@ -26,7 +26,7 @@
 			</Column>
 		</columns>
 		<items>
-			<ColumnListItem type="Navigation" press="onPress">
+			<ColumnListItem type="Navigation" press="onPressProduct">
 				<cells>
 					<ObjectIdentifier title="{northwind>ProductName}"/>
 					<Text text="{northwind>Category/CategoryName}"/>

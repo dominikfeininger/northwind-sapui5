@@ -25,7 +25,22 @@ sap.ui.define([
 			oBinding.filter(aFilter);
 		},
 
-		onPress: function(oEvent) {
+		onSuggestProducts: function(oEvent) {
+			var sQuery = oEvent.getParameter("suggestValue");
+			var aFilter = [];
+			if (sQuery) {
+				aFilter = [new Filter([
+					new Filter("ProductName", function(sDescription) {
+						return (sDescription || "").toUpperCase().indexOf(sQuery.toUpperCase()) > -1;
+					})
+				], false)];
+			}
+
+			this.oSF.getBinding("suggestionItems").filter(aFilter);
+			this.oSF.suggest();
+		},
+
+			onPressProduct: function(oEvent) {
 			var oItem = oEvent.getSource();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("detail", {

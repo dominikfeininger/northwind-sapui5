@@ -16,14 +16,11 @@ sap.ui.define([
 
 		onFilterProducts: function(oEvent) {
 			var aFilter = [];
-			if (oEvent) {
-				var sQuery = this.getView().byId("productInput").value;	
-			}
-				// var sQuery = oEvent.getParameter("query");
+			var sQuery = oEvent.getParameter("query");
 			if (sQuery) {
 				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
 			}
-			var oList = this.getView().byId("productList").text;
+			var oList = this.getView().byId("productList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
 		},

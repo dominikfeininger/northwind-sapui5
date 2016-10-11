@@ -1,5 +1,5 @@
 sap.ui.define([
-	"sap/ui/core/mcv/Controller",
+	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History"
 ], function (Controller, History) {
 	"use strict";
@@ -7,8 +7,6 @@ sap.ui.define([
 	return Controller.extend("test.app.controller.SupplierDetail", {
 		
 		onInit: function () {
-			this.getView().setModel("northwind");
-			
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("supplierDetail").attachPatternMatched(this._onObjectMatched, this);
 		},

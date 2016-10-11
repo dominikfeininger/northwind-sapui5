@@ -7,5 +7,6 @@ sap.ui.define([
 		onInit: function() {
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 		}
+		
 	});
 });

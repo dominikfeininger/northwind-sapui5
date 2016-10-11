@@ -28,6 +28,12 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 					oRouter.navTo("suppliers", true);
 			}
+		},
+		
+		formatMapUrl: function (sStreet, sCity, sCountry) {
+			return "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=500x300&markers="
+					+ jQuery.sap.encodeURL(sStreet + ", " + sCity + ", " + sCountry)
+					+ "&key=AIzaSyDyuMFt2xAbHzFE1Bp94wXWvXM3_xgyNpo";
 		}
 			
 	});

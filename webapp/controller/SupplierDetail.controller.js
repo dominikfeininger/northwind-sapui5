@@ -1,24 +1,19 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History"
-], function(Controller, JSONModel, History) {
+], function (Controller, History) {
 	"use strict";
 	
-	return Controller.extend("test.app.controller.ProductDetail", {
-		onInit: function() {
-			var oViewModel = new JSONModel({
-				currency: "USD"
-			});
-			this.getView().setModel(oViewModel, "view");
-
+	return Controller.extend("test.app.controller.SupplierDetail", {
+		
+		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.getRoute("productDetail").attachPatternMatched(this._onObjectMatched, this);
+			oRouter.getRoute("supplierDetail").attachPatternMatched(this._onObjectMatched, this);
 		},
 		
 		_onObjectMatched: function(oEvent) {
 			this.getView().bindElement({
-				path: "/" + oEvent.getParameter("arguments").productPath,
+				path: "/" + oEvent.getParameter("arguments").supplierPath,
 				model: "northwind"
 			});
 		},
@@ -33,7 +28,13 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 					oRouter.navTo("suppliers", true);
 			}
-		}
+		},
 		
+		formatMapUrl: function (sStreet, sCity, sCountry) {
+			return "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=500x300&markers="
+					+ jQuery.sap.encodeURL(sStreet + ", " + sCity + ", " + sCountry)
+					+ "&key=AIzaSyDyuMFt2xAbHzFE1Bp94wXWvXM3_xgyNpo";
+		}
+			
 	});
 });

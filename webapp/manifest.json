@@ -40,10 +40,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
@@ -87,16 +84,30 @@
 				"name": "products",
 				"target": "products"
 			}, {
-				"pattern": "detail/{productPath}",
-				"name": "detail",
-				"target": "detail"
+				"pattern": "productDetail/{productPath}",
+				"name": "productDetail",
+				"target": "productDetail"
+			}, {
+				"pattern": "",
+				"name": "suppliers",
+				"target": "suppliers"
+			}, {
+				"pattern": "supplierDetail/{supplierPath}",
+				"name": "supplierDetail",
+				"target": "supplierDetail"
 			}],
 			"targets": {
 				"products": {
 					"viewName": "App"
 				},
-				"detail": {
+				"productDetail": {
 					"viewName": "ProductDetail"
+				},
+				"suppliers": {
+					"viewName": "App"
+				},
+				"supplierDetail": {
+					"viewName": "SupplierDetail"
 				}
 			}
 		},

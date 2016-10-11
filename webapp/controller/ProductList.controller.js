@@ -40,12 +40,13 @@ sap.ui.define([
 			this.oSF.suggest();
 		},
 
-			onPressProduct: function(oEvent) {
+		onPressProduct: function(oEvent) {
 			var oItem = oEvent.getSource();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("detail", {
+			oRouter.navTo("productDetail", {
 				productPath: oItem.getBindingContext("northwind").getPath().substr(1)
 			});
 		}
+		
 	});
 });

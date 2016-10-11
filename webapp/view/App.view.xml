@@ -11,7 +11,7 @@
 						<mvc:XMLView viewName="test.app.view.ProductList"/>
 					</IconTabFilter>
 					<IconTabFilter text="Suppliers">
-						<Text text="WIP"/>
+						<mvc:XMLView viewName="test.app.view.SupplierList"/>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>

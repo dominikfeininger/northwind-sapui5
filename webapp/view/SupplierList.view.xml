@@ -1,5 +1,5 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="test.app.controller.SupplierList">
-	<List id="supplierList" headerText="Suppliers" items="{ path: 'northwind>/Suppliers' }" growing="true" growingThreshold="20">
+	<List id="supplierList" headerText="Suppliers" items="{ path: 'northwind>/Suppliers', sorter: {path : 'CompanyName'} }" growing="true" growingThreshold="20" growingScrollToLoad="true">
 		<items>
 			<StandardListItem title="{northwind>CompanyName}" type="Navigation" press="onPressSupplier"/>
 		</items>

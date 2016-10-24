@@ -1,12 +1,10 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="test.app.controller.ProductList">
-	<Table id="productList" class="sapUiResponsiveMargin" width="auto"
-		items="{ path : 'northwind>/Products', sorter: { path : 'Supplier/CompanyName', group : true }, parameters: { 'expand': 'Supplier,Category' } }"
-		growing="true" growingThreshold="20">
+	<Table id="productList" class="sapUiResponsiveMargin" width="auto" items="{ path : 'northwind>/Products', sorter: { path : 'Supplier/CompanyName', group : true }, parameters: { 'expand': 'Supplier,Category' } }" growing="true" growingThreshold="20">
 		<headerToolbar text="Products">
 			<Toolbar>
 				<Title text="Northwind Product List"/>
 				<ToolbarSpacer/>
-				<SearchField width="60%" search="onFilterProducts"/>
+				<SearchField width="60%" search="onFilterProducts" enableSuggestions="true" id="prdocutSearchBar" suggest="onSuggestProducts"/>
 				<content/>
 			</Toolbar>
 		</headerToolbar>
@@ -34,9 +32,7 @@
 					<Text text="{northwind>Category/CategoryName}"/>
 					<ObjectNumber number="{northwind>UnitsInStock}" emphasized="false"/>
 					<ObjectNumber number="{northwind>QuantityPerUnit}" emphasized="false"/>
-					<ObjectNumber
-						number="{ parts: [{path: 'northwind>UnitPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
-						unit="{view>/currency}"/>
+					<ObjectNumber number="{ parts: [{path: 'northwind>UnitPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }" unit="{view>/currency}"/>
 				</cells>
 			</ColumnListItem>
 		</items>

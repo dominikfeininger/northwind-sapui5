@@ -29,15 +29,11 @@ sap.ui.define([
 			var sQuery = oEvent.getParameter("suggestValue");
 			var aFilter = [];
 			if (sQuery) {
-				aFilter = [new Filter([
-					new Filter("ProductName", function(sDescription) {
-						return (sDescription || "").toUpperCase().indexOf(sQuery.toUpperCase()) > -1;
-					})
-				], false)];
+				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
 			}
-
-			this.oSF.getBinding("suggestionItems").filter(aFilter);
-			this.oSF.suggest();
+			var oList = this.getView().byId("productList");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilter);
 		},
 
 		onPressProduct: function(oEvent) {

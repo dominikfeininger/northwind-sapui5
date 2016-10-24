@@ -4,7 +4,7 @@
 			<Toolbar>
 				<Title text="Northwind Product List"/>
 				<ToolbarSpacer/>
-				<SearchField width="60%" search="onFilterProducts" enableSuggestions="true" id="prdocutSearchBar" suggest="onSuggestProducts"/>
+				<SearchField width="60%" search="onFilterProducts" enableSuggestions="true" id="productSearchBar" suggest="onSuggestProducts"/>
 				<content/>
 			</Toolbar>
 		</headerToolbar>

@@ -16,7 +16,6 @@ sap.ui.define([
 
 		onSearch: function(oEvent) {
 			var aFilter = [];
-			var params = oEvent.getParameters();
 			var aQueries = oEvent.getParameter("selectionSet");
 			var sProductQuery = aQueries[0]._lastValue;
 			var sCategoryQuery = aQueries[1]._lastValue;

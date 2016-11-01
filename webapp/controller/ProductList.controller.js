@@ -19,13 +19,15 @@ sap.ui.define([
 			var aQueries = oEvent.getParameter("selectionSet");
 			var sProductQuery = aQueries[0]._lastValue;
 			var sCategoryQuery = aQueries[1]._lastValue;
+			var sSupplierQuery = aQueries[2]._lastValue;
 			if (sProductQuery) {
 				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sProductQuery));
-				console.log("Product Filter: " + sProductQuery)
 			}
 			if (sCategoryQuery) {
 				aFilter.push(new Filter("Category/CategoryName", FilterOperator.Contains, sCategoryQuery));
-				console.log("Category Filter: " + sCategoryQuery)
+			}
+			if (sSupplierQuery) {
+				aFilter.push(new Filter("Supplier/CompanyName", FilterOperator.Contains, sSupplierQuery));
 			}
 			var oList = this.getView().byId("productList");
 			var oBinding = oList.getBinding("items");

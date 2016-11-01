@@ -19,6 +19,19 @@
 				</ComboBox>
 			</fb:control>
 		</fb:FilterItem>
+		<fb:FilterItem name="Supplier" label="Suppliers">
+			<fb:control>
+				<ComboBox items="{
+					path : 'northwind>/Suppliers',
+					sorter: {
+						path : 'CompanyName',
+						group : false
+						}
+				}">
+				<core:Item text="{northwind>CompanyName}" />	
+				</ComboBox>
+			</fb:control>
+		</fb:FilterItem>
 	</fb:filterItems>
 </fb:FilterBar>
 	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" 

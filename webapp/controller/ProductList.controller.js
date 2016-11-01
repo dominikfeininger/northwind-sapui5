@@ -21,9 +21,11 @@ sap.ui.define([
 			var sCategoryQuery = aQueries[1]._lastValue;
 			if (sProductQuery) {
 				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sProductQuery));
+				console.log("Product Filter: " + sProductQuery)
 			}
 			if (sCategoryQuery) {
 				aFilter.push(new Filter("Category/CategoryName", FilterOperator.Contains, sCategoryQuery));
+				console.log("Category Filter: " + sCategoryQuery)
 			}
 			var oList = this.getView().byId("productList");
 			var oBinding = oList.getBinding("items");

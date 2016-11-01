@@ -1,13 +1,19 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="test.app.controller.ProductList">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" controllerName="test.app.controller.ProductList">
+	<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+	<fb:filterItems>
+		<fb:FilterItem name="Products" label="Products">
+			<fb:control>
+				<Input type="Text"/>
+			</fb:control>
+		</fb:FilterItem>
+		<fb:FilterItem name="Category/CategoryName" label="Categories">
+			<fb:control>
+				<Input type="Text"/>
+			</fb:control>
+		</fb:FilterItem>
+	</fb:filterItems>
+</fb:FilterBar>
 	<Table id="productList" class="sapUiResponsiveMargin" width="auto" items="{ path : 'northwind>/Products', sorter: { path : 'Supplier/CompanyName', group : true }, parameters: { 'expand': 'Supplier,Category' } }" growing="true" growingThreshold="20">
-		<headerToolbar text="Products">
-			<Toolbar>
-				<Title text="Northwind Product List"/>
-				<ToolbarSpacer/>
-				<SearchField width="60%" search="onFilterProducts" enableSuggestions="true" id="productSearchBar" suggest="onSuggestProducts"/>
-				<content/>
-			</Toolbar>
-		</headerToolbar>
 		<columns>
 			<Column width="30%">
 				<Text text="Product"/>

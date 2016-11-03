@@ -8,33 +8,21 @@
 		</fb:FilterItem>
 		<fb:FilterItem name="Category" label="Categories">
 			<fb:control>
-				<ComboBox items="{
-					path : 'northwind>/Categories',
-					sorter: {
-						path : 'CategoryName',
-						group : false
-						}
-				}">
-				<core:Item text="{northwind>CategoryName}" />	
+				<ComboBox items="{      path : 'northwind>/Categories',      sorter: {       path : 'CategoryName',       group : false       }     }">
+				<core:Item text="{northwind>CategoryName}"/>	
 				</ComboBox>
 			</fb:control>
 		</fb:FilterItem>
 		<fb:FilterItem name="Supplier" label="Suppliers">
 			<fb:control>
-				<ComboBox items="{
-					path : 'northwind>/Suppliers',
-					sorter: {
-						path : 'CompanyName',
-						group : false
-						}
-				}">
-				<core:Item text="{northwind>CompanyName}" />	
+				<ComboBox items="{      path : 'northwind>/Suppliers',      sorter: {       path : 'CompanyName',       group : false       }     }">
+				<core:Item text="{northwind>CompanyName}"/>	
 				</ComboBox>
 			</fb:control>
 		</fb:FilterItem>
 	</fb:filterItems>
 </fb:FilterBar>
-	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" 
+	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" growingScrollToLoad="true"
 		items="{
 			path : 'northwind>/Products',
 			sorter: { path : 'Supplier/CompanyName', group : true },

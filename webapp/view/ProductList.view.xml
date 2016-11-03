@@ -1,46 +1,43 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" controllerName="test.app.controller.ProductList">
-	<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+	<fb:FilterBar id="filterBar" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
 	<fb:filterItems>
-		<fb:FilterItem name="Product" label="Products">
+		<fb:FilterItem name="ProductName" label="Products">
 			<fb:control>
 				<Input type="Text"/>
 			</fb:control>
 		</fb:FilterItem>
-		<fb:FilterItem name="Category" label="Categories">
+		<fb:FilterItem name="Category/CategoryName" label="Categories">
 			<fb:control>
 				<ComboBox items="{
 					path : 'northwind>/Categories',
 					sorter: {
 						path : 'CategoryName',
 						group : false
-					}
+						}
 				}">
-				<core:Item text="{northwind>CategoryName}"/>	
+				<core:Item text="{northwind>CategoryName}" />	
 				</ComboBox>
 			</fb:control>
 		</fb:FilterItem>
-		<fb:FilterItem name="Supplier" label="Suppliers">
+		<fb:FilterItem name="Supplier/CompanyName" label="Suppliers">
 			<fb:control>
 				<ComboBox items="{
 					path : 'northwind>/Suppliers',
 					sorter: {
 						path : 'CompanyName',
 						group : false
-					}     
+						}
 				}">
-				<core:Item text="{northwind>CompanyName}"/>	
+				<core:Item text="{northwind>CompanyName}" />	
 				</ComboBox>
 			</fb:control>
 		</fb:FilterItem>
 	</fb:filterItems>
 </fb:FilterBar>
-	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" growingScrollToLoad="true"
+	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" 
 		items="{
 			path : 'northwind>/Products',
-			sorter: {
-				path: 'Supplier/CompanyName',
-				group : true
-			},
+			sorter: { path : 'Supplier/CompanyName', group : true },
 			parameters: { 'expand': 'Supplier,Category' }
 		}" >
 		<columns>

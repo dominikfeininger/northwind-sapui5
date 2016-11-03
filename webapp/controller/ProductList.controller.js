@@ -20,7 +20,7 @@ sap.ui.define([
 				aFilters = oFilterBar.getFilterItems(),
 				aQueries = oEvent.getParameter("selectionSet");
 			for (var i = 0; i < aFilters.length; i++) {
-				aFilter.push(new Filter(aFilters[i].getName(),FilterOperator.Contains, aQueries[i]._lastValue));
+				aFilter.push(new Filter(aFilters[i].getName(), FilterOperator.Contains, aQueries[i]._lastValue));
 			}
 			var oList = this.getView().byId("productList");
 			var oBinding = oList.getBinding("items");

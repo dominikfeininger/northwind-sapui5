@@ -34,6 +34,5 @@ sap.ui.define([
 				productPath: oItem.getBindingContext("northwind").getPath().substr(1)
 			});
 		}
-		
 	});
 });

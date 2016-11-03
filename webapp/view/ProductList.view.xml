@@ -37,7 +37,10 @@
 	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" 
 		items="{
 			path : 'northwind>/Products',
-			sorter: { path : 'Supplier/CompanyName', group : true },
+			sorter: {
+				path : 'Supplier/CompanyName',
+				group : true
+			},
 			parameters: { 'expand': 'Supplier,Category' }
 		}" >
 		<columns>

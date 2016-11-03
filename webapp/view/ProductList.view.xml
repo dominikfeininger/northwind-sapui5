@@ -54,7 +54,7 @@
 				<Text text="Quantity per Unit"/>
 			</Column>
 			<Column width="20%" hAlign="End">
-				<Text text="Price"/>
+				<Text text="Price per Unit"/>
 			</Column>
 		</columns>
 		<items>

@@ -51,7 +51,7 @@
 				<Text text="Units in Stock"/>
 			</Column>
 			<Column width="20%">
-				<Text text="Quantity per Unity"/>
+				<Text text="Quantity per Unit"/>
 			</Column>
 			<Column width="20%" hAlign="End">
 				<Text text="Price"/>

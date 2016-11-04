@@ -26,9 +26,10 @@ sap.ui.define([
 			oBinding.filter(aFilter);
 		},
 		
-		onClear: function() {
-			var oFilterBar = this.getView().byId("filterBar");
-			// oFilterBar();
+		onClear: function(oEvent) {
+			var oView = this.getView(),
+				oBinding = oView.byId("productList").getBinding("items");
+			oBinding.filter(null);
 		},
 
 		onPressProduct: function(oEvent) {

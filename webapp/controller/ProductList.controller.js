@@ -17,14 +17,18 @@ sap.ui.define([
 		onSearch: function(oEvent) {
 			var aFilter = [],
 				oFilterBar = this.getView().byId("filterBar"),
-				aFilters = oFilterBar.getFilterItems(),
-				aQueries = oEvent.getParameter("selectionSet");
-			for (var i = 0; i < aFilters.length; i++) {
-				aFilter.push(new Filter(aFilters[i].getName(), FilterOperator.Contains, aQueries[i]._lastValue));
+				aFilterItems = oFilterBar.getFilterItems(),
+				aQueries = oEvent.getParameter("selectionSet"),
+				oBinding = this.getView().byId("productList").getBinding("items");
+			for (var i = 0; i < aFilterItems.length; i++) {
+				aFilter.push(new Filter(aFilterItems[i].getName(), FilterOperator.Contains, aQueries[i]._lastValue));
 			}
-			var oList = this.getView().byId("productList");
-			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
+		},
+		
+		onClear: function() {
+			var oFilterBar = this.getView().byId("filterBar");
+			// oFilterBar();
 		},
 
 		onPressProduct: function(oEvent) {

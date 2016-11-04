@@ -28,19 +28,7 @@ sap.ui.define([
 		
 		onClear: function(oEvent) {
 			var oView = this.getView(),
-				oBinding = oView.byId("productList").getBinding("items"),
-				aFilterItems = oView.byId("filterBar").getFilterItems(),
-				aInputs = [];
-			for (var i = 0; i < aFilterItems.length; i++) {
-				aInputs.push(aFilterItems[i].getId());
-				$(aInputs[i]).html("");
-				// oView.byId( aInputs[i] ).innerHTML("");
-			}
-			// if (aInputs.length > 0) {
-			// 	for (var j = 0, j < aInputs.length; j++) {
-			// 		console.log(aInputs);
-			// 	}
-			// }
+				oBinding = oView.byId("productList").getBinding("items");
 			oBinding.filter(null);
 		},
 

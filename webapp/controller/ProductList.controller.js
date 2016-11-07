@@ -28,8 +28,15 @@ sap.ui.define([
 		
 		onClear: function(oEvent) {
 			var oView = this.getView(),
-				oBinding = oView.byId("productList").getBinding("items");
+				oBinding = oView.byId("productList").getBinding("items"),
+				aInputIds = oEvent.getParameter("selectionSet")
+					.map(function(input) {
+						return input.sId;
+					});
 			oBinding.filter(null);
+			for (var i = 0; i < aInputIds.length; i++) {
+				document.querySelector("#" + aInputIds[i] + "-inner").value = "";
+			}
 		},
 
 		onPressProduct: function(oEvent) {

@@ -29,14 +29,15 @@ sap.ui.define([
 		onClear: function(oEvent) {
 			var oView = this.getView(),
 				oBinding = oView.byId("productList").getBinding("items"),
-				aInputIds = oEvent.getParameter("selectionSet")
-					.map(function(input) {
-						return input.sId;
-					});
-			oBinding.filter(null);
-			for (var i = 0; i < aInputIds.length; i++) {
-				document.querySelector("#" + aInputIds[i] + "-inner").value = "";
+				oFilterBar = oView.byId("filterBar"),
+				oFilterItems = oFilterBar.getAllFilterItems(true);
+			for (var i = 0; i < oFilterItems.length; i++) {
+				var oControl = oFilterBar.determineControlByFilterItem(oFilterItems[i]);
+				if (oControl) {
+					oControl.setValue("");
+				}
 			}
+			oBinding.filter(null);
 		},
 
 		onPressProduct: function(oEvent) {

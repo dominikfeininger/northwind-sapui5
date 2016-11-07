@@ -34,7 +34,7 @@
 		</fb:FilterItem>
 	</fb:filterItems>
 </fb:FilterBar>
-	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" 
+	<Table id="productList" class="sapUiResponsiveMargin" width="auto" growing="true" growingThreshold="20" growingScrollToLoad="true" 
 		items="{
 			path : 'northwind>/Products',
 			sorter: {

@@ -12,4 +12,4 @@ mock_preview_sapui5.html
 /.user.project.json
 /node_modules
 /package.json
-/northwind.js
+/serve.js

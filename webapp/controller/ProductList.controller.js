@@ -14,19 +14,23 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view");
 		},
 
-		onSearch: function(oEvent) {
-			var aFilter = [],
-				oFilterBar = this.getView().byId("filterBar"),
-				aFilterItems = oFilterBar.getFilterItems(),
-				aQueries = oEvent.getParameter("selectionSet"),
-				oBinding = this.getView().byId("productList").getBinding("items");
-			for (var i = 0; i < aFilterItems.length; i++) {
-				aFilter.push(new Filter(aFilterItems[i].getName(), FilterOperator.Contains, aQueries[i]._lastValue));
+		onSearch: function() {
+			var aFilters = [],
+				oView = this.getView(),
+				oBinding = oView.byId("productList").getBinding("items"),
+				oFilterBar = oView.byId("filterBar"),
+				oFilterItems = oFilterBar.getAllFilterItems(true);
+			for (var i = 0; i < oFilterItems.length; i++) {
+				var oFilterName = oFilterItems[i].getName(),
+					oControl = oFilterBar.determineControlByFilterItem(oFilterItems[i]);
+				if (oControl) {
+					aFilters.push(new Filter(oFilterName, FilterOperator.Contains, oControl.getValue()));
+				}
 			}
-			oBinding.filter(aFilter);
+			oBinding.filter(aFilters);
 		},
 		
-		onClear: function(oEvent) {
+		onClear: function() {
 			var oView = this.getView(),
 				oBinding = oView.byId("productList").getBinding("items"),
 				oFilterBar = oView.byId("filterBar"),

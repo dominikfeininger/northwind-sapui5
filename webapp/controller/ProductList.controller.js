@@ -16,6 +16,7 @@ sap.ui.define([
 		
 		onAddProductPress: function (oEvent) {
 
+		    // workaround to use the filter inputs as data source for the new entry
 		    var oView = this.getView();
 		    var oFilterBar = oView.byId("filterBar");
 		    var oFilterItems = oFilterBar.getAllFilterItems(true);

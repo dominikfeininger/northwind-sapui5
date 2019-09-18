@@ -68,7 +68,11 @@
 				}
 			},
 			"northwind": {
-				"dataSource": "Northwind.svc"
+				"dataSource": "Northwind.svc",
+				"settings": {
+					"useBatch": false,
+					"preliminaryContext": true
+				}
 			}
 		},
 		"routing": {

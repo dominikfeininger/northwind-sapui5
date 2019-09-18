@@ -1,5 +1,6 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" controllerName="test.app.controller.ProductList">
 	<fb:FilterBar id="filterBar" search="onSearch" clear="onClear" reset="onReset" showRestoreButton="false" showClearButton="true">
+		<Label text="Add a new product with name: "></Label> <Button text="+" press="onAddProductPress"></Button>
 	<fb:filterItems>
 		<fb:FilterItem name="ProductName" label="Products" id="pf">
 			<fb:control>
